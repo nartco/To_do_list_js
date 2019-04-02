@@ -23,7 +23,8 @@ function createToDoItem(text, done) {
     if(done)
         item.style.textDecoration = "line-through";
     ul.appendChild(item);
-}
+
+    }
 
 function displayTodoList(todo){
     ul.innerHTML = '';
@@ -35,10 +36,24 @@ function displayTodoList(todo){
 
 
 
-displayTodoList(todo);
+//displayTodoList(todo);
 
-let x = document.querySelector("li");
-function onDiv(){
-    alert('connard');
+let x = document.getElementById("btn");
+function addL(){
+    
+    let etat;
+    let tache = document.getElementById('tache').value;
+    if(document.getElementById('etat').checked == true)
+         etat = true;
+    else if (document.getElementById('etat').checked == false)
+         etat = false;
+    let arr = {
+        text: tache,
+        done: etat
+    }
+    todo.push(arr);
+    //console.log(arr);
+    displayTodoList(todo);
+
 }
-x.addEventListener('mouseenter', onDiv);
+x.addEventListener('click', addL);
